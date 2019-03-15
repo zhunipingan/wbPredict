@@ -1,0 +1,651 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon 这里是网页的图标 -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'index/assets/images/favicon.png' %}">
+    <title>微博指数</title>
+    <!-- Bootstrap Core CSS主要的布局 -->
+    <link href="{% static 'index/assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="{% static 'index/assets/plugins/chartist-js/dist/chartist.min.css' %}" rel="stylesheet">
+    <link href="{% static 'index/assets/plugins/chartist-js/dist/chartist-init.css' %}" rel="stylesheet">
+    <link href="{% static 'index/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css' %}" rel="stylesheet">
+    <!--This page css - Morris CSS -->
+    <link href="{% static 'index/assets/plugins/c3-master/c3.min.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'index/css/style.css' %}" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="{% static 'index/css/colors/blue.css' %}" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+
+        <!--这是第一部分最上面-->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
+                <!-- ============================================================== -->
+                <!-- Logo 对应左上角logo-->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        <!-- Logo icon --><b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+
+                            <!-- Light Logo icon -->
+                            <img src="{% static 'index/assets/images/logo-light-icon.png' %}" alt="homepage" class="light-logo" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text --><span>
+
+                         <!-- Light Logo text -->
+                         <img src="{% static 'index/assets/images/logo-light-text.png' %}" class="light-logo" alt="homepage" /></span> </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items 这是对应搜索-->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav mr-auto mt-md-0">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                            <form class="app-search">
+                                <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- User profile and search  这是对应右上角头像 -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- ============================================================== -->
+                        <!-- Profile -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{% static 'index/assets/images/users/1.jpg' %}" alt="user" class="profile-pic m-r-10" />Markarn Doe</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  这是左边栏-->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">首页</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="pages-profile.html" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">微博数据</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="table-basic.html" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">博主数据</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="icon-material.html" aria-expanded="false"><i class="mdi mdi-emoticon"></i><span class="hide-menu">博主主页</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="mdi mdi-earth"></i><span class="hide-menu">关注列表</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">个人中心</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i class="mdi mdi-help-circle"></i><span class="hide-menu">Error 404</span></a>
+                        </li>
+                    </ul>
+
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+            <!-- Bottom points 左边栏下面的三个-->
+            <div class="sidebar-footer">
+                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
+                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a> </div>
+            <!-- End Bottom points-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle图标上面的一行空白 -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                <div id="container_like" style="height: 360px;"></div>
+                            </div>
+                            </div>
+                         </div>
+                    </div>
+                    <!-- 第二个图标-->
+                    <div class="col-lg-4 col-md-5">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">历史互动数 </h3>
+                                <h6 class="card-subtitle"><br></h6>
+                                <!--下面对应的是饼图
+                                <div id="visitor" style="height:290px; width:100%;"></div>-->
+                                <div id="piecontainer" style="height:290px; width:100%;"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                <div id="container_comment" style="height: 360px;"></div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                    <!-- 第二个图标-->
+                    <div class="col-lg-4 col-md-5">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">历史总互动量2 </h3>
+                                <h6 class="card-subtitle"><br></h6>
+                                <!--下面对应的是饼图
+                                <div id="visitor" style="height:290px; width:100%;"></div>-->
+                                <div id="piecontainer_2" style="height:290px; width:100%;"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                <div id="container_forward" style="height: 360px;"></div>
+                            </div>
+                            </div>
+                         </div>
+                    </div>
+                    <!-- 第二个图标-->
+                    <div class="col-lg-4 col-md-5">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">历史点赞数 </h3>
+                                <h6 class="card-subtitle"><br></h6>
+                                <!--下面对应的是饼图
+                                <div id="visitor" style="height:290px; width:100%;"></div>-->
+                                <div id="piecontainer_3" style="height:290px; width:100%;"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                <div id="container_4" style="height: 360px;"></div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                    <!-- 第二个图标-->
+                    <div class="col-lg-4 col-md-5">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">历史总互动量3 </h3>
+                                <h6 class="card-subtitle"><br></h6>
+                                <!--下面对应的是饼图
+                                <div id="visitor" style="height:290px; width:100%;"></div>-->
+                                <div id="piecontainer_4" style="height:290px; width:100%;"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Row -->
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer"> © 2017 Material Pro Admin. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">{{title}}</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="{% static 'index/assets/plugins/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{% static 'index/assets/plugins/bootstrap/js/tether.min.js' %}"></script>
+    <script src="{% static 'index/assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="{% static 'index/js/jquery.slimscroll.js' %}"></script>
+    <!--Wave Effects -->
+    <script src="{% static 'index/js/waves.js' %}"></script>
+    <!--Menu sidebar -->
+    <script src="{% static 'index/js/sidebarmenu.js' %}"></script>
+    <!--stickey kit -->
+    <script src="{% static 'index/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js' %}"></script>
+    <!--Custom JavaScript -->
+    <script src="{% static 'index/js/custom.min.js' %}"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!-- chartist chart -->
+    <script src="{% static 'index/assets/plugins/chartist-js/dist/chartist.min.js' %}"></script>
+    <script src="{% static 'index/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js' %}"></script>
+    <!--c3 JavaScript -->
+    <script src="{% static 'index/assets/plugins/d3/d3.min.js' %}"></script>
+    <script src="{% static 'index/assets/plugins/c3-master/c3.min.js' %}"></script>
+    <!-- Chart JS -->
+    <script src="{% static 'index/js/dashboard1.js' %}"></script>
+
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+
+<script type="text/javascript">
+var dom = document.getElementById("container_like");
+var myChart = echarts.init(dom);//user_info
+var app = {};
+var list = {{list|safe}}
+option = null;
+option = {
+    title: {
+        text: '点赞数变化'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['点赞数']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: list.date//['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name:'点赞数',
+            type:'line',
+            stack: '总量',
+            data:list.like//[120, 132, 101, 134, 90, 230, 210]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+//container comment
+var dom = document.getElementById("container_comment");
+var lineChart2 = echarts.init(dom);
+var app = {};
+var list = {{list|safe}}
+option = null;
+option = {
+    title: {
+        text: '评论数变化'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['评论数']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: list.date//['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name:'评论数',
+            type:'line',
+            stack: '总量',
+            data:list.comment//[220, 182, 191, 234, 290, 330, 310]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    lineChart2.setOption(option, true);
+}
+//container forward
+var dom = document.getElementById("container_forward");
+var lineChart2 = echarts.init(dom);
+var app = {};
+var list = {{list|safe}}
+option = null;
+option = {
+    title: {
+        text: '转发数变化'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['转发数']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: list.date//['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name:'转发数',
+            type:'line',
+            stack: '总量',
+            data:list.forward//[150, 232, 201, 154, 190, 330, 410]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    lineChart2.setOption(option, true);
+}
+
+//linechart3
+var dom = document.getElementById("container_4");
+var lineChart3 = echarts.init(dom);
+var app = {};
+option = null;
+var xAxisData = [];
+var data1 = [];
+var data2 = [];
+for (var i = 0; i < 100; i++) {
+    xAxisData.push('类目' + i);
+    data1.push((Math.sin(i / 5) * (i / 5 -10) + i / 6) * 5);
+    data2.push((Math.cos(i / 5) * (i / 5 -10) + i / 6) * 5);
+}
+
+option = {
+    title: {
+        text: '每日粉丝增减量'
+    },
+    legend: {
+        data: ['bar', 'bar2'],
+        align: 'left'
+    },
+    toolbox: {
+        // y: 'bottom',
+        feature: {
+            magicType: {
+                type: ['stack', 'tiled']
+            },
+            dataView: {},
+            saveAsImage: {
+                pixelRatio: 2
+            }
+        }
+    },
+    tooltip: {},
+    xAxis: {
+        data: xAxisData,
+        silent: false,
+        splitLine: {
+            show: false
+        }
+    },
+    yAxis: {
+    },
+    series: [{
+        name: 'bar',
+        type: 'bar',
+        data: data1,
+        animationDelay: function (idx) {
+            return idx * 10;
+        }
+    }, {
+        name: 'bar2',
+        type: 'bar',
+        data: data2,
+        animationDelay: function (idx) {
+            return idx * 10 + 100;
+        }
+    }],
+    animationEasing: 'elasticOut',
+    animationDelayUpdate: function (idx) {
+        return idx * 5;
+    }
+};;
+if (option && typeof option === "object") {
+    lineChart3.setOption(option, true);
+}
+
+// pie 1
+var dom = document.getElementById("piecontainer");
+var myChart = echarts.init(dom);
+var app = {};
+var pie_info = {{pie|safe}}
+option = null;
+app.title = '环形图';
+
+option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+        data:['点赞数','转发数','评论数']
+    },
+    series: [
+        {
+            name:'历史总互动量',
+            type:'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                {value:pie_info.like, name:'点赞数'},
+                {value:pie_info.comment, name:'转发数'},
+                {value:pie_info.forward, name:'评论数'},
+
+            ]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+
+
+// pie 2
+var dom = document.getElementById("piecontainer_2");
+var pieChart2 = echarts.init(dom);
+var app = {};
+var pie_info = {{pie|safe}}
+option = null;
+app.title = '环形图';
+
+option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+        data:['点赞数','转发数','评论数']
+    },
+    series: [
+        {
+            name:'历史总互动量',
+            type:'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                {value:pie_info.like, name:'点赞数'},
+                {value:pie_info.comment, name:'转发数'},
+                {value:pie_info.forward, name:'评论数'},
+
+            ]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    pieChart2.setOption(option, true);
+}
+       </script>
+</body>
+
+</html>
