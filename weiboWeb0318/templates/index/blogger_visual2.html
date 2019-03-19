@@ -1,0 +1,419 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+    {% block context %}
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle图标上面的一行空白 -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                <div id="container_like" style="height: 360px;"></div>
+                            </div>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <!-- Column -->
+                        <div class="card">
+                            <img class="card-img-top" src="{% static 'index/assets/images/background/profile-bg.jpg' %}" alt="Card image cap">
+                            <div class="card-block little-profile text-center">
+                                <div class="pro-img"><img src="{{user_info.portrait}}" alt="user" /></div>
+                                <h3 class="m-b-0">{{user_info.nick_name}}</h3>
+                                <p>{{user_info.brief_introduction}}</p>
+                                <a href="{{user_info.get_absolute_url}}" target="_parent">查看博主主页</a>
+
+                                <!--<a href="javascript:void(0)" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded">Follow</a>-->
+                            </div>
+                        </div>
+                        <!-- Column -->
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                <div id="container_4" style="height: 360px;"></div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-4 col-md-5">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">粉丝性别分布 </h3>
+                                <h6 class="card-subtitle"><br></h6>
+                                <!--下面对应的是饼图
+                                <div id="visitor" style="height:290px; width:100%;"></div>-->
+                                <div id="piecontainer_sex" style="height:290px; width:100%;"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 第二个图标-->
+                    <div class="col-lg-4 col-md-5">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">粉丝年龄分布 </h3>
+                                <h6 class="card-subtitle"><br></h6>
+                                <!--下面对应的是饼图
+                                <div id="visitor" style="height:290px; width:100%;"></div>-->
+                                <div id="piecontainer_age" style="height:290px; width:100%;"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                <div id="container_location" style="height: 360px;"></div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                    <!-- 第二个图标-->
+
+                </div>
+                <!-- Row -->
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer"> © 2017 Material Pro Admin. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">{{title}}</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+
+    {% endblock context %}
+
+{% block javascript %}
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+           <script type="text/javascript">
+var dom = document.getElementById("container_like");
+var myChart = echarts.init(dom);//user_info
+var app = {};
+var list = {{list|safe}}
+option = null;
+option = {
+    title: {
+        text: '粉丝数变化'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['粉丝数']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: list.date_list//['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name:'粉丝数',
+            type:'line',
+            stack: '总量',
+            data:list.fans_num_list//[120, 132, 101, 134, 90, 230, 210]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+
+//linechart3
+var dom = document.getElementById("container_4");
+var lineChart3 = echarts.init(dom);
+var app = {};
+option = null;
+var data = {{list|safe}}
+
+option = {
+    title: {
+        text: '每日粉丝增减量'
+    },
+    legend: {
+        data: ['bar', 'bar2'],
+        align: 'left'
+    },
+    toolbox: {
+        // y: 'bottom',
+        feature: {
+            dataView: {},
+
+        }
+    },
+    tooltip: {},
+    xAxis: {
+        data: data.date_list_diff,
+        silent: false,
+        splitLine: {
+            show: false
+        }
+    },
+    yAxis: {
+    },
+    series: [{
+        name: '粉丝增量',
+        type: 'bar',
+        data: data.daily_fans_diff,
+        animationDelay: function (idx) {
+            return idx * 10 + 100;
+        }
+    }],
+    animationEasing: 'elasticOut',
+    animationDelayUpdate: function (idx) {
+        return idx * 5;
+    }
+};;
+if (option && typeof option === "object") {
+    lineChart3.setOption(option, true);
+}
+
+
+// pie 2
+var dom = document.getElementById("piecontainer_sex");
+var pieChart2 = echarts.init(dom);
+var app = {};
+var sex_info = {{sex_info|safe}}
+option = null;
+app.title = '环形图';
+
+option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+        data:[sex_info[0]['name'],sex_info[1]['name']]
+    },
+    series: [
+        {
+            name:'粉丝性别分布',
+            type:'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:sex_info/*[
+            {value:213, name:'点赞数'},
+                {value:342, name:'转发数'},
+                {value:34, name:'评论数'},
+
+            ]*/
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    pieChart2.setOption(option, true);
+}
+
+// pie 3  粉丝年龄分布
+var getAgeName = function(age_info){
+    var array = new Array();
+    for(var i = 0; i < age_info.length; i++){
+        array[i] = age_info[i].name
+    }
+    return array
+
+}
+var dom = document.getElementById("piecontainer_age");
+var pieChart2 = echarts.init(dom);
+var app = {};
+var age_info = {{age_info|safe}}
+option = null;
+app.title = '环形图';
+
+option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        data:getAgeName(age_info)
+    },
+    series: [
+        {
+            name:'粉丝年龄分布',
+            type:'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:age_info
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    pieChart2.setOption(option, true);
+}
+
+//粉丝地域分布
+var getMax = function (data) {
+    var max = 0;
+    for (var i = 0; i < data.length; i++) {
+        if (data[i].value > max) {
+            max = data[i].value
+        }
+    }
+    return max;
+};
+
+var displayForeignNumber = function(foreign_fans_num){
+    if (foreign_fans_num > 0){
+        return "其中不包括海外粉丝（共"+foreign_fans_num+"人)"
+    }
+    else{
+        return ""
+    }
+
+}
+var data = {{location_info|safe}}
+var dom = document.getElementById("container_location");
+var location_chart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    title : {
+        text: '粉丝地域分布',
+        subtext: displayForeignNumber({{foreign_fans_num}}),
+        sublink : '',
+        left: 'center',
+        top: 'top'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter : function (params) {
+            //var value = (params.value + '').split('.');
+            //value = value[0].replace(/(\d{1,3})(?=(?:\d{3})+(?!\d))/g, '$1,')
+            //        + '.' + value[1];
+            if (!params.value)
+                params.value = 0
+            return params.seriesName + '<br/>' + params.name + ' : ' + params.value;
+        }
+    },
+    toolbox: {
+        show : true,
+        orient : 'vertical',
+        left: 'right',
+        top: 'center',
+        feature : {
+            restore : {show: true},
+        }
+    },
+    visualMap: {
+        type: 'continuous',
+        min: 0,
+        max: getMax(data),
+        text:['粉丝量高','粉丝量低'],
+        realtime: true,
+        calculable : true,
+        color: ['orangered','yellow','lightskyblue']
+    },
+    series : [
+        {
+            name: '粉丝地域分布',
+            type: 'map',
+            mapType: 'china',
+            roam: true,
+            itemStyle:{
+                emphasis:{label:{show:true}}
+            },
+            data:data
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    location_chart.setOption(option, true);
+}
+       </script>
+{% endblock javascript %}

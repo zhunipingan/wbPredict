@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+    {% block context %}
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle图标上面的一行空白 -->
+                <!-- ============================================================== -->
+               <div class="row page-titles">
+
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs profile-tab" role="tablist">
+                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">最新微博</a> </li>
+                                <!--<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profile</a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a> </li>-->
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="home" role="tabpanel">
+                                    <div class="card-block">
+                                        <div class="profiletimeline">
+                                            {% for weibo in user_weibo %}
+                                                <div class="sl-item">
+                                                    <div class="sl-left"> <img src="{{weibo.portrait}}" alt="user" class="img-circle"> </div>
+                                                    <div class="sl-right">
+                                                        <div><a  class="link">{{weibo.nick_name}}</a> <span class="sl-date">{{weibo.created_at}}</span>
+                                                            <p>{{weibo.content}}</p>
+                                                            <div class="row">
+                                                                {% for pic in weibo.pic_url %}
+                                                                    <div class="col-lg-3 col-md-6 m-b-20"><img src="{{pic}}" alt="user" class="img-responsive radius"></div>
+                                                                {% endfor %}
+
+                                                            </div>
+                                                            <div class="like-comm"> {{weibo.repost_num}} 转发  {{weibo.like_num}} 点赞 <a href="javascript:void(0)" class="link m-r-10">{{weibo.comment_num}} 评论</a>  <a href="{{ weibo.get_absolute_url }}" target="_parent">查看数据</a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <hr>
+                                            {% empty %}
+                                                 <p class="m-t-10"> 暂时没有发现微博~ </p>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <!-- Column -->
+                        <div class="card">
+                            <div class="card-block bg-info">
+                                <h4 class="text-white card-title">推荐博主</h4>
+                                <h6 class="card-subtitle text-white m-b-0 op-5"></h6>
+                            </div>
+                                <div class="card-block">
+                                    <div class="profiletimeline">
+                                        {% for user in user_info %}
+                                            <div class="sl-item">
+                                                <div class="sl-left"> <img src="{{user.portrait}}" alt="user" class="img-circle"> </div>
+                                                <div class="sl-right">
+                                                    <div><a  class="link"><h5>{{user.nick_name}}</h5></a> <span class="sl-date"></span>
+                                                    <div class="mail-contnet">
+                                                        <h5></h5> <span class="mail-desc">{{user.brief_introduction}}</span></div>
+                                                    <div class="like-comm">  关注 {{user.follows_num}} | 粉丝  {{user.fans_num}} | 微博 {{user.weibo_num}} </div>
+                                                        <a href="{{ user.get_absolute_url }}" target="_parent">个人主页</a> | <a href="{{ weibo.get_absolute_url }}" target="_parent">查看数据</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <hr>
+                                        {% empty %}
+                                             <p class="m-t-10"> 暂时没有发现微博~ </p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer"> © 2017 Material Pro Admin. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">{{title}}</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+
+    {% endblock context %}
+
+{% block javascript %}
+{% endblock javascript %}
