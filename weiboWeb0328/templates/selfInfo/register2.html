@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+    {% block context %}
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle图标上面的一行空白 -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <!--<div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="card">
+
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="home" role="tabpanel">
+                                    <div class="card-block">
+                                        <div class="profiletimeline">
+                                            <div class="sl-item">
+                                                <div class="sl-left"> <img src="../assets/images/users/1.jpg" alt="user" class="img-circle"> </div>
+                                                <div class="sl-right">
+                                                    <div><a href="#" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
+                                                        <p>assign a new task <a href="#"> Design weblayout</a></p>
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-6 m-b-20"><img src="../assets/images/big/img1.jpg" alt="user" class="img-responsive radius"></div>
+                                                            <div class="col-lg-3 col-md-6 m-b-20"><img src="../assets/images/big/img2.jpg" alt="user" class="img-responsive radius"></div>
+                                                            <div class="col-lg-3 col-md-6 m-b-20"><img src="../assets/images/big/img3.jpg" alt="user" class="img-responsive radius"></div>
+                                                            <div class="col-lg-3 col-md-6 m-b-20"><img src="../assets/images/big/img4.jpg" alt="user" class="img-responsive radius"></div>
+                                                        </div>
+                                                        <div class="like-comm"> <a href="javascript:void(0)" class="link m-r-10">2 comment</a> <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                <!-- Row -->
+                <!-- Row -->
+                <h2>点击每个按钮查看方法效果</h2>
+<h4>演示 .button('toggle') 方法</h4>
+<div id="myButtons1" class="bs-example">
+   	<button type="button" class="btn btn-primary">原始</button>
+</div>
+<h4>演示 .button('loading') 方法</h4>
+<div id="myButtons2" class="bs-example">
+	<button type="button" class="btn btn-primary"
+			data-loading-text="Loading...">原始
+	</button>
+</div>
+<h4>演示 .button('reset') 方法</h4>
+<div id="myButtons3" class="bs-example">
+	<button type="button" class="btn btn-primary"
+			data-loading-text="Loading...">原始
+	</button>
+</div>
+<h4>演示 .button(string) 方法</h4>
+<button onclick="do()" type="button" class="btn btn-primary" id="myButton4"
+   	data-complete-text="Loading finished">请点击我
+</button>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer"> © 2017 Material Pro Admin. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">{{title}}</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+
+    {% endblock context %}
+
+{% block javascript %}
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(function () {
+		$("#myButtons1 .btn").click(function(){
+			$(this).button('toggle');
+		});
+	});
+	$(function() {
+		$("#myButtons2 .btn").click(function(){
+			$(this).button('loading').delay(1000).queue(function() {
+			});
+		});
+	});
+	$(function() {
+		$("#myButtons3 .btn").click(function(){
+			$(this).button('loading').delay(1000).queue(function() {
+				$(this).button('reset');
+			});
+		});
+	});
+	/*$(function() {
+		$("#myButton4").click(function(){
+			$(this).button('loading').delay(1000).queue(function() {
+				$(this).button('complete');
+			});
+		});
+	});*/
+	$(function() {
+	function do(){
+	alert('34444455555555555555')}
+	}
+</script>
+
+{% endblock javascript %}
