@@ -1,0 +1,847 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="37afb515-c43a-4b7e-a55f-c346ead944b1" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="weiboPredict" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Feature/testSavedModel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1840">
+              <caret line="280" selection-start-line="280" selection-end-line="280" />
+              <folding>
+                <element signature="e#58#94#0" expanded="true" />
+                <element signature="e#401#5268#0" />
+                <element signature="e#5333#11389#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Feature/FeatureExaction20190403 2 基于0403.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="81">
+              <caret line="381" lean-forward="true" selection-start-line="381" selection-end-line="381" />
+              <folding>
+                <element signature="e#450#5339#0" />
+                <element signature="e#5804#8221#0" />
+                <element signature="e#11635#13385#0" />
+                <element signature="e#13451#13591#0" />
+                <element signature="e#14397#15240#0" />
+                <element signature="e#15294#15483#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Feature/版本说明">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pythonWeb/UseModelToPredict.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1605">
+              <caret line="305" column="22" selection-start-line="305" selection-start-column="22" selection-end-line="305" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#1893#1927#0" />
+                <element signature="e#10847#18131#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IOData/DataToMysql.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="94" column="58" selection-start-line="94" selection-start-column="58" selection-end-line="94" selection-end-column="58" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Preprocessing/Preprocess.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="311">
+              <caret line="71" column="102" selection-start-line="71" selection-start-column="102" selection-end-line="71" selection-end-column="102" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>it</find>
+      <find>iter</find>
+      <find>itt</find>
+      <find>ignore_index=True</find>
+      <find>userSum</find>
+      <find>started</find>
+      <find>if modelPath.exists():</find>
+      <find>Multicore</find>
+      <find>lda</find>
+      <find>pd.</find>
+      <find>datetime.now()</find>
+      <find>main</find>
+      <find>sort_values(['uid', 'time'], axis=0, ascending=True, inplace=True)</find>
+      <find>static</find>
+      <find>model_save</find>
+      <find>dataToMysql</find>
+      <find>user_mean_of_like</find>
+      <find>repost_num</find>
+      <find>like_num</find>
+      <find>joblib</find>
+      <find>print</find>
+      <find>0329</find>
+      <find>0330</find>
+      <find>create_engine</find>
+      <find>weibo_data</find>
+      <find>0331</find>
+      <find>0402</find>
+      <find>0403lR</find>
+      <find>get_</find>
+      <find>concat</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>weibo_predict_data</replace>
+      <replace>weibo_data</replace>
+      <replace>model_save_dir</replace>
+      <replace>0330</replace>
+      <replace>dataframe</replace>
+      <replace>0401</replace>
+      <replace>0402</replace>
+      <replace>0403lR</replace>
+      <replace>0403rf</replace>
+      <replace>0403_2rf</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$USER_HOME$/AppData/Local/Temp/Rar$DIa0.094/readFile.py" />
+        <option value="$PROJECT_DIR$/IOData/MySQLUtil.py" />
+        <option value="$PROJECT_DIR$/Feature/FeatureExaction.py" />
+        <option value="$PROJECT_DIR$/Feature/FeatureExaction20190228 2.py" />
+        <option value="$PROJECT_DIR$/Feature/FeatureExaction20190301 1.py" />
+        <option value="$PROJECT_DIR$/Feature/FeatureExaction20190302 2.py" />
+        <option value="$PROJECT_DIR$/IOData/DataToMysql.py" />
+        <option value="$PROJECT_DIR$/tool/fileTool.py" />
+        <option value="$PROJECT_DIR$/Feature/FeatureExaction20190303 1.py" />
+        <option value="$PROJECT_DIR$/Feature/test.py" />
+        <option value="$PROJECT_DIR$/data/test2.txt" />
+        <option value="$PROJECT_DIR$/Feature/test3.py" />
+        <option value="$PROJECT_DIR$/Feature/test2.py" />
+        <option value="$PROJECT_DIR$/Feature/FeatureExaction20190302 1.py" />
+        <option value="$PROJECT_DIR$/tool/printTool.py" />
+        <option value="$PROJECT_DIR$/Preprocessing/Visualization.py" />
+        <option value="$PROJECT_DIR$/Feature/FeatureExaction20190306 1 基于0302.py" />
+        <option value="$PROJECT_DIR$/Feature/FeatureExaction20190302 2 best.py" />
+        <option value="$USER_HOME$/weiboWeb/blog/admin.py" />
+        <option value="$USER_HOME$/weiboWeb/blog/templatetags/blog_tags.py" />
+        <option value="$USER_HOME$/weiboWeb/blog/urls.py" />
+        <option value="$USER_HOME$/weiboWeb/templates/base.html" />
+        <option value="$USER_HOME$/weiboWeb/weiboWeb/settings.py" />
+        <option value="$USER_HOME$/weiboWeb/comments/forms.py" />
+        <option value="$USER_HOME$/weiboWeb/comments/models.py" />
+        <option value="$USER_HOME$/weiboWeb/comments/urls.py" />
+        <option value="$USER_HOME$/weiboWeb/weiboWeb/urls.py" />
+        <option value="$USER_HOME$/weiboWeb/templates/blog/detail.html" />
+        <option value="$USER_HOME$/weiboWeb/comments/views.py" />
+        <option value="$USER_HOME$/weiboWeb/blog/models.py" />
+        <option value="$USER_HOME$/weiboWeb/blog/views.py" />
+        <option value="$PROJECT_DIR$/LDA/lda.py" />
+        <option value="$PROJECT_DIR$/Feature/FeatureExaction20190308 1 基于0302.py" />
+        <option value="$PROJECT_DIR$/Feature/FeatureExaction20190303 1  带保存model但感觉速度没有提高.py" />
+        <option value="$PROJECT_DIR$/Feature/FeatureExaction20190328 基于0308.py" />
+        <option value="$PROJECT_DIR$/LDA/test.py" />
+        <option value="$PROJECT_DIR$/Feature/testSavedModel.py" />
+        <option value="$PROJECT_DIR$/Feature/FeatureExaction20190329 基于0328.py" />
+        <option value="$PROJECT_DIR$/Preprocessing/Preprocess.py" />
+        <option value="$PROJECT_DIR$/Feature/FeatureExaction20190403 基于0329.py" />
+        <option value="$PROJECT_DIR$/Feature/版本说明" />
+        <option value="$PROJECT_DIR$/pythonWeb/UseModelToPredict.py" />
+        <option value="$PROJECT_DIR$/Feature/FeatureExaction20190403 2 基于0403.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="weiboPredict" type="b2602c69:ProjectViewProjectNode" />
+              <item name="weiboPredict" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="weiboPredict" type="b2602c69:ProjectViewProjectNode" />
+              <item name="weiboPredict" type="462c0819:PsiDirectoryNode" />
+              <item name="Feature" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="weiboPredict" type="b2602c69:ProjectViewProjectNode" />
+              <item name="weiboPredict" type="462c0819:PsiDirectoryNode" />
+              <item name="IOData" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="weiboPredict" type="b2602c69:ProjectViewProjectNode" />
+              <item name="weiboPredict" type="462c0819:PsiDirectoryNode" />
+              <item name="pythonWeb" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="weiboPredict" type="b2602c69:ProjectViewProjectNode" />
+              <item name="weiboPredict" type="462c0819:PsiDirectoryNode" />
+              <item name="tool" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../others tianchi/IJCAI17_Tianchi_Rank4-master" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\graduation project\weiboPredict\Feature" />
+      <recent name="D:\graduation project\weiboPredict\LDA" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.FeatureExaction20190403 2 基于0403">
+    <configuration name="FeatureExaction20190329 基于0328" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="weiboPredict" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Feature" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Feature/FeatureExaction20190329 基于0328.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FeatureExaction20190403 基于0329" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="weiboPredict" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Feature" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Feature/FeatureExaction20190403 基于0329.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FeatureExaction20190403 2 基于0403" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="weiboPredict" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Feature" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Feature/FeatureExaction20190403 2 基于0403.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UseModelToPredict" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="weiboPredict" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pythonWeb" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pythonWeb/UseModelToPredict.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="testSavedModel" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="weiboPredict" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Feature" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Feature/testSavedModel.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.FeatureExaction20190403 2 基于0403" />
+        <item itemvalue="Python.UseModelToPredict" />
+        <item itemvalue="Python.FeatureExaction20190403 基于0329" />
+        <item itemvalue="Python.FeatureExaction20190329 基于0328" />
+        <item itemvalue="Python.testSavedModel" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="37afb515-c43a-4b7e-a55f-c346ead944b1" name="Default Changelist" comment="" />
+      <created>1550998090066</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1550998090066</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.37140697" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33049405" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39863715" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="R Graphics" order="3" />
+      <window_info anchor="right" id="R Packages" order="4" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3/time.pyi">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://D:/pycharmWorkspace/python3.7/Lib/site-packages/pandas/core/frame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="333" column="8" selection-start-line="333" selection-start-column="8" selection-end-line="333" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/pycharmWorkspace/python3.7/Lib/datetime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="1488" column="6" selection-start-line="1488" selection-start-column="6" selection-end-line="1488" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/FeatureExaction20190828.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/FeatureExaction20190228 2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2898">
+          <caret line="130" column="26" selection-start-line="130" selection-start-column="26" selection-end-line="130" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/weibo_data/query_0.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="57" selection-start-line="3" selection-start-column="57" selection-end-line="3" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/test2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="61" lean-forward="true" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="943">
+          <caret line="43" column="6" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
+          <folding>
+            <element signature="e#535#568#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/test3.py" />
+    <entry file="file://$PROJECT_DIR$/LDA/GlobalStopWords.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://D:/pycharmWorkspace/python3.7/Lib/site-packages/sklearn/ensemble/forest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5198">
+          <caret line="249" selection-start-line="249" selection-end-line="249" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/FeatureExaction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10212">
+          <caret line="448" column="9" selection-start-line="448" selection-start-column="9" selection-end-line="448" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/FeatureExaction20190301 1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2392">
+          <caret line="108" column="30" selection-start-line="108" selection-start-column="30" selection-end-line="108" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/printTool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/test2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/FeatureExaction20190307 1 基于0302.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8769">
+          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/FeatureExaction20190302 1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="360" lean-forward="true" selection-start-line="360" selection-end-line="360" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Preprocessing/Visualization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="9" selection-start-line="10" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/pycharmWorkspace/python3.7/Lib/site-packages/seaborn/categorical.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="3681" column="37" lean-forward="true" selection-start-line="3681" selection-start-column="37" selection-end-line="3681" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/FeatureExaction20190306 1 基于0302.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="333" column="9" selection-start-line="333" selection-start-column="9" selection-end-line="333" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/FeatureExaction20190302 2 best.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="279" selection-start-line="279" selection-end-line="279" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/weiboWeb/blog/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/weiboWeb/blog/templatetags/blog_tags.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+          <folding>
+            <element signature="e#1#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/weiboWeb/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="110" column="52" selection-start-line="110" selection-start-column="52" selection-end-line="110" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/weiboWeb/weiboWeb/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+          <folding>
+            <element signature="e#632#664#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/weiboWeb/blog/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/weiboWeb/templates/blog/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1426">
+          <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/weiboWeb/comments/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/weiboWeb/blog/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/weiboWeb/comments/urls.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/weiboWeb/blog/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+          <folding>
+            <element signature="e#16#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/weiboWeb/weiboWeb/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="40" column="15" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/weiboWeb/comments/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/weiboWeb/comments/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="53" column="25" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LDA/lda.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="13" column="18" lean-forward="true" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/FeatureExaction20190308 1 基于0302.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="369" column="50" selection-start-line="369" selection-start-column="50" selection-end-line="369" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/FeatureExaction20190328 基于0308.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="409" selection-start-line="409" selection-end-line="409" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/FeatureExaction20190303 1  带保存model但感觉速度没有提高.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="248" column="34" selection-start-line="248" selection-start-column="34" selection-end-line="248" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#428#492#0" />
+            <element signature="e#532#5393#0" />
+            <element signature="e#5459#11515#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LDA/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/pycharmWorkspace/python3.7/Lib/site-packages/sklearn/model_selection/_split.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48829">
+          <caret line="2142" column="50" selection-start-line="2141" selection-start-column="8" selection-end-line="2142" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IOData/MySQLUtil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/fileTool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-230">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/pycharmWorkspace/python3.7/Lib/site-packages/pandas/core/generic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="2039" column="39" lean-forward="true" selection-start-line="2039" selection-start-column="39" selection-end-line="2039" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/testSavedModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1840">
+          <caret line="280" selection-start-line="280" selection-end-line="280" />
+          <folding>
+            <element signature="e#58#94#0" expanded="true" />
+            <element signature="e#401#5268#0" />
+            <element signature="e#5333#11389#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/FeatureExaction20190329 基于0328.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="339" column="9" lean-forward="true" selection-start-line="339" selection-start-column="9" selection-end-line="339" selection-end-column="9" />
+          <folding>
+            <element signature="e#450#5339#0" />
+            <element signature="e#5407#11569#0" />
+            <element signature="e#11635#13385#0" />
+            <element signature="e#14397#15240#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IOData/DataToMysql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="94" column="58" selection-start-line="94" selection-start-column="58" selection-end-line="94" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Preprocessing/Preprocess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="71" column="102" selection-start-line="71" selection-start-column="102" selection-end-line="71" selection-end-column="102" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/版本说明">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pythonWeb/UseModelToPredict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1605">
+          <caret line="305" column="22" selection-start-line="305" selection-start-column="22" selection-end-line="305" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#1893#1927#0" />
+            <element signature="e#10847#18131#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/FeatureExaction20190403 基于0329.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1454">
+          <caret line="116" column="9" lean-forward="true" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="9" />
+          <folding>
+            <element signature="e#450#5339#0" />
+            <element signature="e#11635#13385#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature/FeatureExaction20190403 2 基于0403.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="381" lean-forward="true" selection-start-line="381" selection-end-line="381" />
+          <folding>
+            <element signature="e#450#5339#0" />
+            <element signature="e#5804#8221#0" />
+            <element signature="e#11635#13385#0" />
+            <element signature="e#13451#13591#0" />
+            <element signature="e#14397#15240#0" />
+            <element signature="e#15294#15483#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
