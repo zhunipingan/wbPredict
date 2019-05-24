@@ -1,0 +1,524 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+    {% block context %}
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle图标上面的一行空白 -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <!--下面三个是0327添加，为了展示预测结果-->
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                <div id="container_like" style="height: 360px;"></div>
+                                    <div style="overflow-y:scroll;height: 70px;">
+                                        <font color="blue">小贴士</font>：大量数据分析结果（详细影响因素见右表）表明，建议通过<font color="black">提高博文质量、增加发博次数/天数、适当增加博文长度、保持一定的发博频率、注意是否为节假日</font>等方式来提高微博影响力~
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <!-- Column -->
+                        <div class="card">
+                            <div class="card-block bg-info">
+                                <h4 class="text-white card-title">点赞数影响因素分析</h4>
+                            </div>
+                            <div class="card-block">
+                                <div class="message-box contact-box">
+                                    <div style="overflow-y:scroll;height: 355px;" class="message-widget contact-widget">
+                                        <!-- Message -->
+                                        {% if like_factor|length > 0 %}
+                                        下面是点赞数影响因素及权重信息<br><br>
+
+                                        {% for key_word in like_factor %}
+                                        {% if key_word.0 > 0 and forloop.counter <= 20 %}
+                                            <b title="点击查看详细图表" onclick="handle_show_factor_dialog('{{key_word.1}}','like_count')">{{key_word.1}}</b> : {{key_word.0}}<br>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% else %}
+                                            <p class="m-t-10"> 暂时没有发现分析结论~ </p>
+                                        {% endif %}
+                                        <!--{% for comment in hot_comment %}-->
+                                            <!--<div class="mail-contnet">-->
+                                                <!--<h5>{{comment.content}}</h5>-->
+                                            <!--</div>-->
+                                        <!--<div  style="font-size:10px" align="right" class="mail-desc">用户{{comment.comment_user_id}} 发表于{{comment.created_at}}</div>-->
+                                        <!--<hr>-->
+                                        <!--{% empty %}-->
+                                            <!--<p class="m-t-10"> 没有发现分析结论~ </p>-->
+                                        <!--{% endfor %}-->
+                                        <!-- Message -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Column -->
+                    </div>
+
+
+
+                </div>
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                <div id="container_comment" style="height: 360px;"></div>
+                                    <div style="overflow-y:scroll;height: 70px;">
+                                        <font color="blue">小贴士</font>：大量数据分析结果（详细影响因素见右表）表明，建议通过<font color="black">提高博文质量、引进优质内容、跟进热门话题、增加发博次数/天数、保持一定的发博频率</font>等方式来提高微博影响力~
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <!-- Column -->
+                        <div class="card">
+                            <div class="card-block bg-info">
+                                <h4 class="text-white card-title">评论数影响因素分析</h4>
+                            </div>
+                            <div class="card-block">
+                                <div class="message-box contact-box">
+                                    <div style="overflow-y:scroll;height: 355px;" class="message-widget contact-widget">
+                                        <!-- Message -->
+                                        {% if like_factor|length > 0 %}
+                                        下面是评论数影响因素及权重信息<br><br>
+
+                                        {% for key_word in comment_factor %}
+                                        {% if key_word.0 > 0 and forloop.counter <= 20 %}
+                                            <b title="点击查看详细图表" onclick="handle_show_factor_dialog('{{key_word.1}}','comment_count')">{{key_word.1}}</b> : {{key_word.0}}<br>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% else %}
+                                            <p class="m-t-10"> 暂时没有发现分析结论~ </p>
+                                        {% endif %}
+                                        <!-- Message -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Column -->
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                <div id="container_forward" style="height: 360px;"></div>
+                                    <div style="overflow-y:scroll;height: 70px;">
+                                        <font color="blue">小贴士</font>：大量数据分析结果（详细影响因素见右表）表明，建议通过<font color="black">变化博文长度、引进优质内容、适当添加链接等外链内容</font>等方式来提高微博影响力~
+                                    </div>
+                            </div>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <!-- Column -->
+                        <div class="card">
+                            <div class="card-block bg-info">
+                                <h4 class="text-white card-title">转发数影响因素分析</h4>
+                            </div>
+                            <div class="card-block">
+                                <div class="message-box contact-box">
+                                    <div style="overflow-y:scroll;height: 355px;" class="message-widget contact-widget">
+                                        <!-- Message -->
+                                        {% if like_factor|length > 0 %}
+                                        下面是转发数影响因素及权重信息<br><br>
+
+                                        {% for key_word in repost_factor %}
+                                        {% if key_word.0 > 0 and forloop.counter <= 20 %}
+                                            <b title="点击查看详细图表" onclick="handle_show_factor_dialog('{{key_word.1}}','forward_count')">{{key_word.1}}</b> : {{key_word.0}}<br>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% else %}
+                                            <p class="m-t-10"> 暂时没有发现分析结论~ </p>
+                                        {% endif %}
+                                        <!-- Message -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Column -->
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- Row -->
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+
+    {% endblock context %}
+
+{% block javascript %}
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+           <script type="text/javascript">
+//下面三个是0327添加，显示预测结果
+var dom = document.getElementById("container_like");
+var myChart = echarts.init(dom);//user_info
+var app = {};
+var list = {{weibo_analyse_list|safe}}
+var list_length = list.date.length
+option = null;
+option = {
+    title: {
+        text: '历史点赞数'
+    },
+    toolbox:{
+    feature : {
+            restore : {show: true},
+        }
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['点赞数','预测点赞数']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '13%',
+        containLabel: true
+    },
+    xAxis: [{
+        type: 'category',
+        boundaryGap: false,
+        data: list.date//['周一','周二','周三','周四','周五','周六','周日']
+    }
+    ],
+    yAxis: {
+        type: 'value'
+    },dataZoom: [
+        {   // 这个dataZoom组件，默认控制x轴。
+            type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+            startValue: list_length-100,      // 左边在 10% 的位置。
+            endValue: list_length        // 右边在 60% 的位置。
+        },
+        {   // 这个dataZoom组件，也控制x轴。
+            type: 'inside', // 这个 dataZoom 组件是 inside 型 dataZoom 组件
+            startValue: list_length-100,      // 左边在 10% 的位置。
+            endValue: list_length         // 右边在 60% 的位置。
+        }
+    ],
+    series: [
+        {
+            name:'点赞数',
+            type:'line',
+            stack: '总量',
+            smooth:true,
+            data:list.like//[120, 132, 101, 134, 90, 230, 210]
+        },
+        {
+            name:'预测点赞数',
+            type:'line',
+            xAxisIndex: 0,
+            smooth:true, //更圆滑
+            data:list.predict_like//[120, 132, 101, 134, 90, 230, 210]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+//container comment
+var dom = document.getElementById("container_comment");
+var lineChart2 = echarts.init(dom);
+var app = {};
+var list = {{weibo_analyse_list|safe}}
+var list_length = list.date.length
+option = null;
+option = {
+    title: {
+        text: '历史评论数'
+    },
+    toolbox:{
+    feature : {
+            restore : {show: true},
+        }
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['评论数','预测评论数']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '13%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: list.date//['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value'
+    },dataZoom: [
+        {   // 这个dataZoom组件，默认控制x轴。
+            type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+            startValue: list_length-100,      // 左边在 10% 的位置。
+            endValue: list_length        // 右边在 60% 的位置。
+        },
+        {   // 这个dataZoom组件，也控制x轴。
+            type: 'inside', // 这个 dataZoom 组件是 inside 型 dataZoom 组件
+            startValue: list_length-100,      // 左边在 10% 的位置。
+            endValue: list_length         // 右边在 60% 的位置。
+        }
+    ],
+    series: [
+        {
+            name:'评论数',
+            type:'line',
+            stack: '总量',
+            smooth:true, //更圆滑
+            data:list.comment//[220, 182, 191, 234, 290, 330, 310]
+        },
+        {
+            name:'预测评论数',
+            type:'line',
+            smooth:true, //更圆滑
+            data:list.predict_comment//[120, 132, 101, 134, 90, 230, 210]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    lineChart2.setOption(option, true);
+}
+//container forward
+var dom = document.getElementById("container_forward");
+var lineChart2 = echarts.init(dom);
+var app = {};
+var list = {{weibo_analyse_list|safe}}
+var list_length = list.date.length
+option = null;
+option = {
+    title: {
+        text: '历史转发数'
+    },
+    toolbox:{
+    feature : {
+            restore : {show: true},
+        }
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['转发数','预测转发数']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '13%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: list.date//['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value'
+    },dataZoom: [
+        {   // 这个dataZoom组件，默认控制x轴。
+            type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+            startValue: list_length-100,      // 左边在 10% 的位置。
+            endValue: list_length        // 右边在 60% 的位置。
+        },
+        {   // 这个dataZoom组件，也控制x轴。
+            type: 'inside', // 这个 dataZoom 组件是 inside 型 dataZoom 组件
+            startValue: list_length-100,      // 左边在 10% 的位置。
+            endValue: list_length         // 右边在 60% 的位置。
+        }
+    ],
+    series: [
+        {
+            name:'转发数',
+            type:'line',
+            stack: '总量',
+            smooth:true, //更圆滑
+            data:list.forward//[150, 232, 201, 154, 190, 330, 410]
+        },
+        {
+            name:'预测转发数',
+            type:'line',
+            smooth:true, //更圆滑
+            data:list.predict_forward//[120, 132, 101, 134, 90, 230, 210]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    lineChart2.setOption(option, true);
+}
+
+function handle_show_factor_dialog(factor_name,y_name){
+    $("#smallmodalLabelnobutton").text("加载中");
+    $("#infoDetailLabelnobutton").text("加载中，请稍候...");
+    $('#smallmodalnobutton').modal('show');
+    $.ajaxSetup({data: {csrfmiddlewaretoken: '{{ csrf_token }}'}});
+      $.ajax({
+                url:"/handleShowFactorDialog/",
+                type:'POST',
+                data:{factor_name:factor_name,y_name:y_name},
+                success: function (arg) {    //如果程序执行成功就会执行这里的函数
+                    $('#smallmodalnobutton').modal('hide');
+                    var callback_dic = $.parseJSON(arg);
+                    if(callback_dic.status){
+                        var data = callback_dic.data
+                        console.log(data[factor_name])
+                        show_factor_dialog(data[factor_name],data[y_name],factor_name,y_name)
+
+                    }else{
+                        //alert(callback_dic.error); //把错误的信息从后台提出展示出来
+                        $("#smallmodalLabel").text("失败");
+                        $("#infoDetailLabel").text(callback_dic.error);
+                        $('#smallmodal').modal();
+                    }
+                }
+
+            });
+
+}
+//0522 修改 加入影响因素图显示
+function show_factor_dialog(factor,y,factor_name,y_name)
+{
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);//user_info
+var app = {};
+var list_length = factor.length
+option = null;
+option = {
+    title: {
+        text: factor_name+' 和 '+y_name
+    },
+    toolbox:{
+    feature : {
+            restore : {show: true},
+        }
+    },
+    tooltip: {
+        trigger: 'axis',
+    },
+    legend: {
+        data:[factor_name]
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '13%',
+        containLabel: true
+    },
+    xAxis: [{
+        type: 'category',
+        boundaryGap: false,
+        data: factor//['周一','周二','周三','周四','周五','周六','周日']
+    }
+    ],
+    yAxis: {
+        type: 'value'
+    },dataZoom: [
+        {   // 这个dataZoom组件，默认控制x轴。
+            type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+            startValue: 0,      // 左边在 10% 的位置。
+            endValue: list_length        // 右边在 60% 的位置。
+        },
+        {   // 这个dataZoom组件，也控制x轴。
+            type: 'inside', // 这个 dataZoom 组件是 inside 型 dataZoom 组件
+            startValue: 0,      // 左边在 10% 的位置。
+            endValue: list_length         // 右边在 60% 的位置。
+        }
+    ],
+    series: [
+        {
+            name:'点赞数',
+            type:'line',
+            stack: '总量',
+            smooth:true,
+            data:y//[120, 132, 101, 134, 90, 230, 210]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+
+$('#myFactorModal').on('shown.bs.modal',function(){
+    myChart.resize()
+})
+
+if (y_name == 'like_count'){
+    $("#myFactorModalLabel").text("点赞数影响因素分析");
+}
+else if(y_name == 'comment_count'){
+    $("#myFactorModalLabel").text("评论数影响因素分析");
+}
+else{
+    $("#myFactorModalLabel").text("转发数影响因素分析");
+}
+
+$("#btn_factor_submit").text("关闭");
+$('#myFactorModal').modal();
+}
+
+       </script>
+<div class="modal fade" id="myFactorModal" tabindex="-1" role="dialog" aria-labelledby="myFactorModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myFactorModalLabel">查看博主数据</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div id="container" style="height: 360px;"></div>
+                                </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btn_factor_submit"  class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock javascript %}

@@ -1,0 +1,670 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon 这里是网页的图标 -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'index/assets/images/favicon.png' %}">
+    <title>微博指数</title>
+    <!-- Bootstrap Core CSS主要的布局 -->
+    <link href="{% static 'index/assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="{% static 'index/assets/plugins/chartist-js/dist/chartist.min.css' %}" rel="stylesheet">
+    <link href="{% static 'index/assets/plugins/chartist-js/dist/chartist-init.css' %}" rel="stylesheet">
+    <link href="{% static 'index/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css' %}" rel="stylesheet">
+    <!--This page css - Morris CSS -->
+    <link href="{% static 'index/assets/plugins/c3-master/c3.min.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'index/css/style.css' %}" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="{% static 'index/css/colors/blue.css' %}" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+
+        <!--这是第一部分最上面-->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
+                <!-- ============================================================== -->
+                <!-- Logo 对应左上角logo-->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        <!-- Logo icon --><b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+
+                            <!-- Light Logo icon -->
+                            <img src="{% static 'index/assets/images/logo-light-icon.png' %}" alt="homepage" class="light-logo" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text --><span>
+
+                         <!-- Light Logo text -->
+                         <img src="{% static 'index/assets/images/logo-light-text.png' %}" class="light-logo" alt="homepage" /></span> </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items 这是对应搜索-->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav mr-auto mt-md-0">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                            <form class="app-search">
+                                <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- User profile and search  这是对应右上角头像 -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- ============================================================== -->
+                        <!-- Profile -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{% static 'index/assets/images/users/1.jpg' %}" alt="user" class="profile-pic m-r-10" />Markarn Doe</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  这是左边栏-->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">首页</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" onclick="search_blog_data_diag()" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">微博数据</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" onclick="search_blogger_data_diag()" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">博主数据</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" onclick="search_blogger_homepage_diag()" aria-expanded="false"><i class="mdi mdi-emoticon"></i><span class="hide-menu">博主主页</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="/self" aria-expanded="false"><i class="mdi mdi-earth"></i><span class="hide-menu">关注列表</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">个人中心</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i class="mdi mdi-help-circle"></i><span class="hide-menu">Error 404</span></a>
+                        </li>
+                    </ul>
+
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+            <!-- Bottom points 左边栏下面的三个-->
+            <div class="sidebar-footer">
+                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
+                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a> </div>
+            <!-- End Bottom points-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle图标上面的一行空白 -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <!--<div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="card">
+
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="home" role="tabpanel">
+                                    <div class="card-block">
+                                        <div class="profiletimeline">
+                                            <div class="sl-item">
+                                                <div class="sl-left"> <img src="../assets/images/users/1.jpg" alt="user" class="img-circle"> </div>
+                                                <div class="sl-right">
+                                                    <div><a href="#" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
+                                                        <p>assign a new task <a href="#"> Design weblayout</a></p>
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-6 m-b-20"><img src="../assets/images/big/img1.jpg" alt="user" class="img-responsive radius"></div>
+                                                            <div class="col-lg-3 col-md-6 m-b-20"><img src="../assets/images/big/img2.jpg" alt="user" class="img-responsive radius"></div>
+                                                            <div class="col-lg-3 col-md-6 m-b-20"><img src="../assets/images/big/img3.jpg" alt="user" class="img-responsive radius"></div>
+                                                            <div class="col-lg-3 col-md-6 m-b-20"><img src="../assets/images/big/img4.jpg" alt="user" class="img-responsive radius"></div>
+                                                        </div>
+                                                        <div class="like-comm"> <a href="javascript:void(0)" class="link m-r-10">2 comment</a> <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                <div id="container_like" style="height: 360px;"></div>
+                            </div>
+                            </div>
+                         </div>
+                    </div>
+                    <!-- 第二个图标-->
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <!-- Column -->
+                        <div class="card">
+                            <img class="card-img-top" src="{% static 'index/assets/images/background/profile-bg.jpg' %}" alt="Card image cap">
+                            <div class="card-block little-profile text-center">
+                                <div class="pro-img"><img src="{{user_info.portrait}}" alt="user" /></div>
+                                <h3 class="m-b-0">{{user_info.nick_name}}</h3>
+                                <p>{{user_info.brief_introduction}}</p>
+                                <a href="{{user_info.get_absolute_url}}" target="_parent">查看博主主页</a>
+
+                                <!--<a href="javascript:void(0)" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded">Follow</a>-->
+                            </div>
+                        </div>
+                        <!-- Column -->
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                <div id="container_comment" style="height: 360px;"></div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                    <!-- 第二个图标-->
+                    <div class="col-lg-4 col-md-5">
+                        <div class="card">
+                            <div class="card-block bg-info">
+                                <h4 class="text-white card-title">热门评论</h4>
+                            </div>
+                            <div class="card-block">
+                                <div class="message-box contact-box">
+                                    <div style="overflow-y:scroll;height: 285px;" class="message-widget contact-widget">
+                                        <!-- Message -->
+                                        {% for comment in hot_comment %}
+                                            <div class="mail-contnet">
+                                                <h5>{{comment.content}}</h5>
+                                            </div>
+                                        <div  style="font-size:10px" align="right" class="mail-desc">用户{{comment.comment_user_id}} 发表于{{comment.created_at}}</div>
+                                        <hr>
+                                        {% empty %}
+                                            <p class="m-t-10"> 暂时没有发现评论~ </p>
+                                        {% endfor %}
+                                        <!-- Message -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                <div id="container_forward" style="height: 360px;"></div>
+                            </div>
+                            </div>
+                         </div>
+                    </div>
+                    <!-- 第二个图标-->
+                    <div class="col-lg-4 col-md-5">
+                        <div class="card">
+                            <div class="card-block bg-info">
+                                <h4 class="text-white card-title">博主其他微博</h4>
+                            </div>
+                            <div class="card-block">
+                                <div class="message-box contact-box">
+                                    <div style="overflow-y:scroll;height: 285px;" class="message-widget contact-widget">
+                                        <!-- Message -->
+                                        {% for weibo in weibo_list %}
+                                            <div class="mail-contnet">
+                                                <a href = "{{ weibo.get_absolute_url }}" title="点击前往查看微博数据分析" target="_parent">
+                                                <h5>{{weibo.content}}</h5>
+                                                </a>
+                                            </div>
+                                         <div class="like-comm"> {{weibo.repost_num}} 转发  {{weibo.like_num}} 点赞  {{weibo.comment_num}} 评论</div>
+                                        <div  style="font-size:10px" align="right" class="mail-desc">发表于{{weibo.created_at}}</div>
+                                        <hr>
+                                        {% empty %}
+                                            <p class="m-t-10"> 暂时没有发现其他微博~ </p>
+                                        {% endfor %}
+                                        <!-- Message -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                    <h4 class="font-medium m-t-30">当前互动数</h4>
+                                        <hr>
+                                        {% for info in pie2%}
+                                        <h5 class="m-t-30">{{info.name}}<span class="pull-right">{{info.value}} (占比{{info.percent}}%)</span></h5>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:{{info.percent}}%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
+                                        </div>
+                                        {% endfor %}
+                            </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                <div id="main" style="height: 360px;"></div>
+                            </div>
+                            </div>
+                         </div>
+                    </div>
+                    <!-- 第二个图标-->
+
+                </div>
+                <!-- Row -->
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer"> © 2017 Material Pro Admin. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">{{title}}</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="{% static 'index/assets/plugins/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{% static 'index/assets/plugins/bootstrap/js/tether.min.js' %}"></script>
+    <script src="{% static 'index/assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="{% static 'index/js/jquery.slimscroll.js' %}"></script>
+    <!--Wave Effects -->
+    <script src="{% static 'index/js/waves.js' %}"></script>
+    <!--Menu sidebar -->
+    <script src="{% static 'index/js/sidebarmenu.js' %}"></script>
+    <!--stickey kit -->
+    <script src="{% static 'index/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js' %}"></script>
+    <!--Custom JavaScript -->
+    <script src="{% static 'index/js/custom.min.js' %}"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!-- chartist chart -->
+    <script src="{% static 'index/assets/plugins/chartist-js/dist/chartist.min.js' %}"></script>
+    <script src="{% static 'index/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js' %}"></script>
+    <!--c3 JavaScript -->
+    <script src="{% static 'index/assets/plugins/d3/d3.min.js' %}"></script>
+    <script src="{% static 'index/assets/plugins/c3-master/c3.min.js' %}"></script>
+    <!-- Chart JS -->
+    <script src="{% static 'index/js/dashboard1.js' %}"></script>
+
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script src="{% static 'index/js/echarts-wordcloud.js' %}"></script>
+<script type="text/javascript">
+var dom = document.getElementById("container_like");
+var myChart = echarts.init(dom);//user_info
+var app = {};
+var list = {{list|safe}}
+option = null;
+option = {
+    title: {
+        text: '点赞数变化'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['点赞数']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: list.date//['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name:'点赞数',
+            type:'line',
+            stack: '总量',
+            data:list.like//[120, 132, 101, 134, 90, 230, 210]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+//container comment
+var dom = document.getElementById("container_comment");
+var lineChart2 = echarts.init(dom);
+var app = {};
+var list = {{list|safe}}
+option = null;
+option = {
+    title: {
+        text: '评论数变化'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['评论数']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: list.date//['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name:'评论数',
+            type:'line',
+            stack: '总量',
+            data:list.comment//[220, 182, 191, 234, 290, 330, 310]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    lineChart2.setOption(option, true);
+}
+//container forward
+var dom = document.getElementById("container_forward");
+var lineChart2 = echarts.init(dom);
+var app = {};
+var list = {{list|safe}}
+option = null;
+option = {
+    title: {
+        text: '转发数变化'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['转发数']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: list.date//['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name:'转发数',
+            type:'line',
+            stack: '总量',
+            data:list.forward//[150, 232, 201, 154, 190, 330, 410]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    lineChart2.setOption(option, true);
+}
+
+
+//词云
+
+var word_cloud = {{word_cloud|safe}}
+var chart = echarts.init(document.getElementById('main'));
+            var option = {
+                title: {
+                    text: '评论词信息'
+                },
+                tooltip: {},
+                series: [ {
+                    type: 'wordCloud',
+                    //gridSize: 0,
+                    sizeRange: [12, 50],
+                    rotationRange: [-90, 90],
+                    //width: 600,
+                    //height: 400,
+                    drawOutOfBound: true,
+                    textStyle: {
+                        normal: {
+                            color: function () {
+                                return 'rgb(' + [
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160)
+                                ].join(',') + ')';
+                            }
+                        },
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowColor: '#333'
+                        }
+                    },
+                    data:word_cloud
+
+                } ]
+            };
+            chart.setOption(option);
+            window.onresize = chart.resize;
+
+
+            function search_blogger_data_diag()
+            {
+                    $("#myModalLabel").text("查看博主数据");
+                    $("#input_type_name").text("博主ID");
+                     $("#btn_submit").text("确认");
+                    $('#myModal').modal();
+            }
+            function search_blog_data_diag()
+            {
+                    $("#myModalLabel").text("查看微博数据");
+                    $("#input_type_name").text("微博ID");
+                     $("#btn_submit").text("确认");
+                    $('#myModal').modal();
+            }
+            function search_blogger_homepage_diag()
+            {
+                    $("#myModalLabel").text("查看博主主页");
+                    $("#input_type_name").text("博主ID");
+                     $("#btn_submit").text("确认");
+                    $('#myModal').modal();
+            }
+
+            function handle_search()
+            {
+              var search_id =  document.getElementById("txt_search_id").value//$('#txt_user_id').value
+              var search_type = $("#myModalLabel").text()
+              /*var search_type_id = 0
+              if(search_type == '查看微博数据'){
+                  search_type_id = 1
+              }
+              else if (search_type == '查看博主数据'){
+                  search_type_id = 2
+              }
+              else if(search_type == '查看博主主页'){
+                  search_type_id = 0//默认为0
+              }*/
+              $.ajaxSetup({data: {csrfmiddlewaretoken: '{{ csrf_token }}'}});
+              $.ajax({
+                        url:"/handleSearch/",
+                        type:'POST',
+                        data:{search_id:search_id,search_type:search_type},
+                        success: function (arg) {    //如果程序执行成功就会执行这里的函数
+                            var callback_dic = $.parseJSON(arg);
+                            if(callback_dic.status){
+                                if(search_type == '查看微博数据'){
+                                    location.href="/weibo/"+search_id;
+                                }
+                                else if (search_type == '查看博主数据'){
+                                    location.href="/blogger/"+search_id;
+                                }
+                                else if(search_type == '查看博主主页'){
+                                    location.href="/u/"+search_id;
+                                }
+                            }else{
+                                //alert(callback_dic.error); //把错误的信息从后台提出展示出来
+                                $("#smallmodalLabel").text("失败");
+                                $("#infoDetailLabel").text(callback_dic.error);
+                                $('#smallmodal').modal();
+                            }
+                        }
+
+                    });
+            }
+       </script>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">查看博主数据</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="txt_search_id" id="input_type_name">博主ID</label>
+                        <input type="text" name="txt_departmentname" class="form-control" id="txt_search_id">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                    <button type="button" id="btn_submit" onclick="handle_search()" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="smallmodalLabel">失败</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id = "infoDetailLabel">
+                            <p>
+                               新增失败！
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>-->
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+
+</html>

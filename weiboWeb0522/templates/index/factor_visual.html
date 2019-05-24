@@ -1,0 +1,302 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+    {% block context %}
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle图标上面的一行空白 -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <!--下面三个是0327添加，为了展示预测结果-->
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                <div id="container_like" style="height: 360px;"></div>
+                                    <div style="overflow-y:scroll;height: 70px;">
+                                        <font color="blue">小贴士</font>：大量数据分析结果（详细影响因素见右表）表明，建议通过<font color="black">提高博文质量、增加发博次数/天数、适当增加博文长度、保持一定的发博频率、注意是否为节假日</font>等方式来提高微博影响力~
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+
+
+
+
+                </div>
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                <div id="container_comment" style="height: 360px;"></div>
+                                    <div style="overflow-y:scroll;height: 70px;">
+                                        <font color="blue">小贴士</font>：大量数据分析结果（详细影响因素见右表）表明，建议通过<font color="black">提高博文质量、引进优质内容、跟进热门话题、增加发博次数/天数、保持一定的发博频率</font>等方式来提高微博影响力~
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+
+
+
+                </div>
+                <div class="row">
+                    <!-- Column第一个图标 -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="col-12">
+                                <div id="container_forward" style="height: 360px;"></div>
+                                    <div style="overflow-y:scroll;height: 70px;">
+                                        <font color="blue">小贴士</font>：大量数据分析结果（详细影响因素见右表）表明，建议通过<font color="black">变化博文长度、引进优质内容、适当添加链接等外链内容</font>等方式来提高微博影响力~
+                                    </div>
+                            </div>
+                            </div>
+                         </div>
+                    </div>
+
+
+
+                </div>
+
+
+
+                <!-- Row -->
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+
+    {% endblock context %}
+
+{% block javascript %}
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+           <script type="text/javascript">
+//下面三个是0327添加，显示预测结果
+var dom = document.getElementById("container_like");
+var myChart = echarts.init(dom);//user_info
+var app = {};
+console.log('23444444444')
+var list = {{factor_list|safe}}
+var list_length = list.blog_15day_sum_days.length
+option = null;
+option = {
+    title: {
+        text: '历史点赞数'
+    },
+    toolbox:{
+    feature : {
+            restore : {show: true},
+        }
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['点赞数','预测点赞数']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '13%',
+        containLabel: true
+    },
+    xAxis: [{
+        type: 'category',
+        boundaryGap: false,
+        data: list.blog_15day_sum_days//['周一','周二','周三','周四','周五','周六','周日']
+    }
+    ],
+    yAxis: {
+        type: 'value'
+    },dataZoom: [
+        {   // 这个dataZoom组件，默认控制x轴。
+            type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+            startValue: list_length-100,      // 左边在 10% 的位置。
+            endValue: list_length        // 右边在 60% 的位置。
+        },
+        {   // 这个dataZoom组件，也控制x轴。
+            type: 'inside', // 这个 dataZoom 组件是 inside 型 dataZoom 组件
+            startValue: list_length-100,      // 左边在 10% 的位置。
+            endValue: list_length         // 右边在 60% 的位置。
+        }
+    ],
+    series: [
+        {
+            name:'点赞数',
+            type:'line',
+            stack: '总量',
+            smooth:true,
+            data:list.comment_count//[120, 132, 101, 134, 90, 230, 210]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+/*//container comment
+var dom = document.getElementById("container_comment");
+var lineChart2 = echarts.init(dom);
+var app = {};
+var list = {{weibo_analyse_list|safe}}
+var list_length = list.date.length
+option = null;
+option = {
+    title: {
+        text: '历史评论数'
+    },
+    toolbox:{
+    feature : {
+            restore : {show: true},
+        }
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['评论数','预测评论数']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '13%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: list.date//['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value'
+    },dataZoom: [
+        {   // 这个dataZoom组件，默认控制x轴。
+            type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+            startValue: list_length-100,      // 左边在 10% 的位置。
+            endValue: list_length        // 右边在 60% 的位置。
+        },
+        {   // 这个dataZoom组件，也控制x轴。
+            type: 'inside', // 这个 dataZoom 组件是 inside 型 dataZoom 组件
+            startValue: list_length-100,      // 左边在 10% 的位置。
+            endValue: list_length         // 右边在 60% 的位置。
+        }
+    ],
+    series: [
+        {
+            name:'评论数',
+            type:'line',
+            stack: '总量',
+            smooth:true, //更圆滑
+            data:list.comment//[220, 182, 191, 234, 290, 330, 310]
+        },
+        {
+            name:'预测评论数',
+            type:'line',
+            smooth:true, //更圆滑
+            data:list.predict_comment//[120, 132, 101, 134, 90, 230, 210]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    lineChart2.setOption(option, true);
+}
+//container forward
+var dom = document.getElementById("container_forward");
+var lineChart2 = echarts.init(dom);
+var app = {};
+var list = {{weibo_analyse_list|safe}}
+var list_length = list.date.length
+option = null;
+option = {
+    title: {
+        text: '历史转发数'
+    },
+    toolbox:{
+    feature : {
+            restore : {show: true},
+        }
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['转发数','预测转发数']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '13%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: list.date//['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value'
+    },dataZoom: [
+        {   // 这个dataZoom组件，默认控制x轴。
+            type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+            startValue: list_length-100,      // 左边在 10% 的位置。
+            endValue: list_length        // 右边在 60% 的位置。
+        },
+        {   // 这个dataZoom组件，也控制x轴。
+            type: 'inside', // 这个 dataZoom 组件是 inside 型 dataZoom 组件
+            startValue: list_length-100,      // 左边在 10% 的位置。
+            endValue: list_length         // 右边在 60% 的位置。
+        }
+    ],
+    series: [
+        {
+            name:'转发数',
+            type:'line',
+            stack: '总量',
+            smooth:true, //更圆滑
+            data:list.forward//[150, 232, 201, 154, 190, 330, 410]
+        },
+        {
+            name:'预测转发数',
+            type:'line',
+            smooth:true, //更圆滑
+            data:list.predict_forward//[120, 132, 101, 134, 90, 230, 210]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    lineChart2.setOption(option, true);
+}*/
+
+
+
+       </script>
+{% endblock javascript %}

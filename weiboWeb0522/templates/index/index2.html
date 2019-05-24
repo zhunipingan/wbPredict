@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+    {% block context %}
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle图标上面的一行空白 -->
+                <!-- ============================================================== -->
+               <div class="row page-titles">
+
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs profile-tab" role="tablist">
+                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">最新微博</a> </li>
+                                <!--<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profile</a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a> </li>-->
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="home" role="tabpanel">
+                                    <div class="card-block">
+                                        <div class="profiletimeline">
+                                            {% for weibo in page.object_list %}
+                                                <div class="sl-item">
+                                                    <div class="sl-left"> <img src="{{weibo.portrait}}" alt="user" class="img-circle"> </div>
+                                                    <div class="sl-right">
+                                                        <div><a  class="link">{{weibo.nick_name}}</a> <span class="sl-date">{{weibo.created_at}}</span>
+                                                            <p>{{weibo.content}}</p>
+                                                            <div class="row">
+                                                                {% for pic in weibo.pic_url %}
+                                                                    <div class="col-lg-3 col-md-6 m-b-20"><img src="{{pic}}" alt="user" class="img-responsive radius" onclick="imgZoomIn(this.src);"></div>
+                                                                {% endfor %}
+
+                                                            </div>
+                                                            <div class="like-comm"> {{weibo.repost_num}} 转发  {{weibo.like_num}} 点赞 <a href="javascript:void(0)" class="link m-r-10">{{weibo.comment_num}} 评论</a>  <a href="{{ weibo.get_absolute_url }}" target="_parent">查看数据</a></div>
+                                                            {% if weibo.key_word != ""%}
+                                                            <font color="blue">关键词：</font>{{weibo.key_word}}
+                                                            {% endif %}
+                                                            {% if weibo.is_positive != ""%}
+                                                            <br>
+                                                            <font color="blue">情感偏向：</font>
+                                                            {% if weibo.sentiment_score.1 < 0.6 and weibo.sentiment_score.1 > 0.4 %}
+                                                            偏<b>中性</b>情绪 &nbsp&nbsp&nbsp消极<big><b>{% widthratio weibo.sentiment_score.0 1 100.0 %}</b></big>%积极<big><b>{% widthratio weibo.sentiment_score.1 1 100.0 %}</b></big>%
+                                                            {% else %}
+
+                                                            {% if weibo.is_positive == 1%}
+                                                            偏<b>积极</b>情绪（喜悦）&nbsp&nbsp&nbsp概率 <big><b>{% widthratio weibo.sentiment_score.1 1 100.0 %}</b></big>%
+                                                            {% else %}
+                                                            偏<b>消极</b>情绪（低落）&nbsp&nbsp&nbsp概率 <big><b>{% widthratio weibo.sentiment_score.0 1 100.0 %}</b></big>%
+                                                            {% endif %}
+
+                                                            {% endif %}
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <hr>
+                                            {% empty %}
+                                                 <p class="m-t-10"> 暂时没有发现微博~ </p>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--下面是分页-->
+                            <div class="pagination-simple" align="center">
+                              <!-- 如果当前页还有上一页，显示一个上一页的按钮 -->
+                              {% if page.has_previous %}
+                                <a href="?page=1">首页</a>
+                                <a href="?page={{ page.previous_page_number }}">上一页</a>
+                              {% endif %}
+                              <!-- 显示当前页面信息 -->
+                              <span class="current">第 {{ page.number }} 页 / 共 {{ page.paginator.num_pages }} 页</span>
+                              <!-- 如果当前页还有下一页，显示一个下一页的按钮 -->
+                              {% if page.has_next %}
+                                <a href="?page={{ page.next_page_number }}">下一页</a>
+                                <a href="?page={{ page.paginator.num_pages }}">尾页</a>
+                              {% endif %}
+                    </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <!-- Column -->
+                        <div class="card">
+                            <div class="card-block bg-info">
+                                <h4 class="text-white card-title">推荐博主</h4>
+                                <h6 class="card-subtitle text-white m-b-0 op-5"></h6>
+                            </div>
+                                <div class="card-block">
+                                    <div class="profiletimeline">
+                                        {% for user in user_info %}
+                                            <div class="sl-item">
+                                                <div class="sl-left"> <img src="{{user.portrait}}" alt="user" class="img-circle"> </div>
+                                                <div class="sl-right">
+                                                    <div><a  class="link"><h5>{{user.nick_name}}</h5></a> <span class="sl-date"></span>
+                                                    <div class="mail-contnet">
+                                                        <h5></h5> <span class="mail-desc">{{user.brief_introduction}}</span></div>
+                                                    <div class="like-comm">  关注 {{user.follows_num}} | 粉丝  {{user.fans_num}} | 微博 {{user.weibo_num}} </div>
+                                                        <a href="{{ user.get_absolute_url }}" target="_parent">个人主页</a> | <a href="{{ user.get_absolute_url_blogger_visual }}" target="_parent">查看数据</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <hr>
+                                        {% empty %}
+                                             <p class="m-t-10"> 暂时没有发现博主~ </p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+<!--图片放大 模态框（Modal） -->
+    <div class="modal fade text-center" id="imgZoomInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+     <div class="modal-dialog" style="display: inline-block; width: auto;">
+      <div class="modal-content">
+       <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
+       </div>
+       <div class="modal-body">
+        <img src="" id="pigImg" />
+       </div>
+      </div>
+      <!-- /.modal-content -->
+     </div>
+    </div>
+    {% endblock context %}
+
+{% block javascript %}
+<script type="text/javascript">
+    //点击查看原图
+	function imgZoomIn(src){
+	    //console.log("I am an alert box!!")
+		$("#pigImg").attr('src',src.replace('wap180','bmiddle'));
+    	$("#imgZoomInModal").modal("show");
+    }
+</script>
+
+{% endblock javascript %}
